@@ -7,15 +7,15 @@
         <th>Nafn</th>
         <th>Athugasemd</th>
       </tr>
-      <% result.forEach(( item ) => { %>
+      <% result.forEach(( row ) => { %>
       <tr>
-        <td> <%= locals.formatDate(item.signed) %></td>
-        <% if (item.anonymous) { %>
+        <td> <%= locals.formatDate(row.signed) %></td>
+        <% if (row.anonymous) { %>
           <td>anonymous</td>
         <% } else   { %>
-          <td><%= item.name %></td>
+          <td><%= row.name %></td>
         <% } %>
-        <td><%= item.comment %></td>
+        <td><%= row.comment %></td>
       </tr>
       <% }) %>
     </table>

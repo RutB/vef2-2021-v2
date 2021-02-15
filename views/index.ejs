@@ -23,8 +23,8 @@
         <% if (errors.length > 0) { %>
           <h2>Vandræði við að senda umsókn:</h2>
           <ul class="errors">
-            <% errors.forEach((error) => { %>
-              <li class="error"><label  ><%= error.msg %></label></li>
+            <% errors.forEach((err) => { %>
+              <li class="error"><label  ><%= err.msg %></label></li>
             <% }); %>
           </ul>
         <% } %>
