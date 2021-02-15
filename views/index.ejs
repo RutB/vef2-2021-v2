@@ -19,8 +19,16 @@
         <p class="">Ekki birta nafn á lista </p>
       </label>
 
-      <%- include('error') -%>
-
+      <div class="petition__errorMessages">
+        <% if (errors.length > 0) { %>
+          <h2>Vandræði við að senda umsókn:</h2>
+          <ul class="errors">
+            <% errors.forEach((error) => { %>
+              <li class="error"><label  ><%= error.msg %></label></li>
+            <% }); %>
+          </ul>
+        <% } %>
+      </div>
       <div class="petition__button">
         <button><h2>Skrifa undir</h2></button>
       </div>
