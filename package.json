@@ -10,6 +10,7 @@
     "sass:watch": "node-sass --source-map-embed --watch ./styles/styles.scss ./public/styles.css",
     "nodemon": "nodemon ./src/app.js",
     "dev": "concurrently npm:nodemon npm:sass:*",
+    "setup": "node ./src/setup.js",
     "start": "node ./src/app.js"
   },
   "keywords": [],
