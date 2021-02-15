@@ -4,8 +4,7 @@
   "description": "",
   "main": "./src/app.js",
   "scripts": {
-    "lint:stylelint": "stylelint ./styles/*.scss --syntax scss",
-    "lint:eslint": "eslint ./src",
+    "lint:eslint": "eslint ./src --fix",
     "sass:build": "node-sass --source-map-embed ./styles/styles.scss ./public/styles.css",
     "sass:watch": "node-sass --source-map-embed --watch ./styles/styles.scss ./public/styles.css",
     "nodemon": "nodemon ./src/app.js",

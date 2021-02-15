@@ -3,13 +3,13 @@ import dotenv from 'dotenv';
 import { promises as fs } from 'fs';
 
 async function readFileAsync(sql) {
-    try {
-      const file = await fs.readFile(sql);
-      return file;
-    } catch (e) {
-      throw new Error(e);
-    }
+  try {
+    const file = await fs.readFile(sql);
+    return file;
+  } catch (e) {
+    throw new Error(e);
   }
+}
 
 dotenv.config();
 
@@ -46,31 +46,31 @@ export async function query(q, v = []) {
 }
 
 async function main() {
-    console.info(`Set upp gagnagrunn á ${connectionString}`);
-    // droppa töflu ef til
-    await query('DROP TABLE IF EXISTS applications');
-    console.info('Töflu eytt');
+  console.info(`Set upp gagnagrunn á ${connectionString}`);
+  // droppa töflu ef til
+  await query('DROP TABLE IF EXISTS applications');
+  console.info('Töflu eytt');
 
-    // búa til töflu út frá skema
-    try {
-      const createTable = await readFileAsync('./sql/schema.sql');
-      await query(createTable.toString('utf8'));
-      console.info('Tafla búin til');
-    } catch (e) {
-      console.error('Villa við að búa til töflu:', e.message);
-      return;
-    }
-
-    // bæta færslum við töflu
-    try {
-      const insert = await readFileAsync('./sql/fake.sql');
-      await query(insert.toString('utf8'));
-      console.info('Gögnum bætt við');
-    } catch (e) {
-      console.error('Villa við að bæta gögnum við:', e.message);
-    }
+  // búa til töflu út frá skema
+  try {
+    const createTable = await readFileAsync('./sql/schema.sql');
+    await query(createTable.toString('utf8'));
+    console.info('Tafla búin til');
+  } catch (e) {
+    console.error('Villa við að búa til töflu:', e.message);
+    return;
   }
 
-  main().catch((err) => {
-    console.error(err);
-  });
+  // bæta færslum við töflu
+  try {
+    const insert = await readFileAsync('./sql/fake.sql');
+    await query(insert.toString('utf8'));
+    console.info('Gögnum bætt við');
+  } catch (e) {
+    console.error('Villa við að bæta gögnum við:', e.message);
+  }
+}
+
+main().catch((err) => {
+  console.error(err);
+});

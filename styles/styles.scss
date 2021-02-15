@@ -1,3 +1,11 @@
+$max-width: 50em;
+$bg-color: #ffffec;
+$butt-color: #bbb9b9;
+$butt-hover: #a3a052;
+$tablet: 768px;
+$mobileL: 425px;
+$mobileS: 320px;
+
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +24,7 @@ html {
 body {
   background-color: #eee;
   color: #333;
-  font-family: 'Lora', georgia, serif;
+  font-family: "Lora", georgia, serif;
   font-size: 16px;
 }
 
@@ -34,12 +42,6 @@ span {
   font-weight: 400;
 }
 
-main {
-  margin: 0 auto;
-  max-width: 1200px;
-  width: 100%;
-}
-
 .header {
   display: flex;
   margin: 2rem;
@@ -50,103 +52,119 @@ main {
   }
 }
 
-.cards {
-  box-sizing: border-box;
-  cursor: pointer;
-  margin-bottom: 2em;
-  padding: 1em;
-  text-decoration: none;
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  justify-self: center;
+  margin: 0 auto;
+}
 
-  &__container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
+.petitions {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 
-  &__title {
-    font-size: 2rem;
+  &__button {
+    padding: 0.5em 1em;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0.5em;
+    border-color: transparent;
+    background-color: $butt-color;
+    transition: background-color 300ms ease-in;
+    margin: 1em auto;
+
+    &:hover {
+      background-color: $butt-hover;
+    }
   }
 }
 
 .card {
-  &__link {
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    width: 100%;
-  }
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 
-  @media (min-width: 600px) {
-    &__link {
-      width: 49%;
+  &__invalid {
+    input {
+      background-color: #fbb;
+      border-color: #855;
     }
   }
 
-  @media (min-width: 1200px) {
-    &__link {
-      width: 33%;
+  &__row {
+    width: 70%;
+    margin: 1em 0;
+  }
+
+  &__input {
+    width: 88%;
+    box-sizing: border-box;
+    margin: 1em 0;
+    padding: 0.5em;
+    transition: width 300ms ease-in;
+  }
+  &__anon {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    label,
+    input {
+      cursor: pointer;
     }
   }
-
-  &__image {
-    align-items: flex-end;
+  &__errMsg {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+
+    h2 {
+      margin: 0 auto;
+    }
+    ul {
+      margin: 0 auto;
+    }
+  }
+}
+
+.results {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px dotted $butt-hover;
+  justify-content: center;
+  align-items: center;
+
+  &__header {
+    font-size: 2em;
   }
 
-  &__img {
-    height: 100%;
+  &__table {
     width: 100%;
+    border-spacing: 0px;
+    th {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+    td,
+    th {
+      border: 1px solid $butt-hover;
+    }
+    td,
+    th {
+      width: 33.33%;
+      padding: 0.5em;
+    }
+    th {
+      text-align: center;
+    }
   }
-
-  &__duration {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: rgb(255, 255, 255);
-    margin-right: 0.25rem;
-    margin-top: -2rem;
-    padding: 0.2em;
-    width: fit-content;
-  }
-
-  &__text {
-    margin-top: 1rem;
-  }
-
-  &__divider {
-    border-top: 0.1rem solid;
-    margin: 4rem;
-  }
-}
-
-.video {
-  padding: 1rem;
-  width: 90%;
-
-  &__title {
-    font-size: 2rem;
-    padding: 1rem;
-  }
-
-  &__video {
-    width: 100%;
-  }
-
-  &__description {
-    margin-bottom: 2rem;
-  }
-}
-
-.error {
-  &__message {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-  }
-}
-
-.back {
-  color: #333;
-  font-weight: bold;
-  text-decoration: none;
 }
