@@ -4,7 +4,6 @@
 
 Verkefnið snýst um að útbúa einfaldan undirskriftarlista með skráningu og birtingu skráninga.
 
-Fyrst
 
 ## Útlit
 
