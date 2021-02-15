@@ -115,12 +115,12 @@ export async function query(q, v = []) {
 }
 
 export async function saveToDB(data) {
-  const q = `INSERT INTO signatures (name, nationalId, comment, anonymous) VALUES ($1, $2, $3, $4)`;
+  const q = `INSERT INTO Signatures (name, nationalId, comment, anonymous) VALUES ($1, $2, $3, $4)`;
   const values = [data.name, data.nationalId, data.comment, data.anonymous];
   return query(q, values);
 }
 
 export async function fetchData() {
-  const result = await query('SELECT * FROM signatures ORDER BY id DESC');
+  const result = await query('SELECT * FROM Signatures ORDER BY id DESC');
   return result;
 }
