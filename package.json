@@ -2,7 +2,7 @@
   "name": "v1",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "./src/app.js",
   "scripts": {
     "lint:stylelint": "stylelint ./styles/*.scss --syntax scss",
     "lint:eslint": "eslint ./src",
