@@ -66,7 +66,7 @@ dotenv.config();
 
 const {
   DATABASE_URL: connectionString,
-  //NODE_ENV: nodeEnv = 'development',
+  NODE_ENV: nodeEnv = 'development',
 } = process.env;
 
 if (!connectionString) {
